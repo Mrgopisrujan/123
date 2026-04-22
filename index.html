@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Deepak ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: black;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            margin-top: 80px;
+        }
+
+        h1 {
+            color: #ff4d6d;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 30px;
+            font-size: 22px;
+            padding: 20px;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 12px;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(-10vh); }
+        }
+    </style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="song.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+    <h1>🎂 Happy Birthday Deepak ❤️</h1>
+    <p>Click below... I have something for you 💖</p>
+
+    <button onclick="startSurprise()">Start 💝</button>
+
+    <div id="message"></div>
+
+    <!-- Photos -->
+    <div id="photos" style="display:none;">
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+    </div>
+</div>
+
+<script>
+let text = `Hey Deepak ❤️
+
+From the moment you came into my life,
+everything started to feel right.
+
+Your smile makes my darkest days bright,
+your love feels warm, safe, and light.
+
+In every heartbeat, in everything I do,
+somewhere in it… there is always you.
+
+I may not say it every day,
+but I’m lucky to have you in every way.
+
+Forever yours,
+Mounika 💕`;
+
+let i = 0;
+
+function startSurprise() {
+    document.getElementById("music").play();
+    typeWriter();
+    createHearts();
+}
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    } else {
+        document.getElementById("photos").style.display = "block";
+    }
+}
+
+function createHearts() {
+    for (let i = 0; i < 25; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (20 + Math.random() * 20) + "px";
+        document.body.appendChild(heart);
+    }
+}
+</script>
+
+</body>
+</html>
